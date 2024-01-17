@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2023 at 10:39 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Jan 17, 2024 at 11:40 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,14 @@ CREATE TABLE `doctor` (
   `d_email` varchar(50) NOT NULL,
   `d_password` varchar(50) NOT NULL,
   `d_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctor`
+--
+
+INSERT INTO `doctor` (`d_email`, `d_password`, `d_id`) VALUES
+('admin@gmail.com', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -43,7 +50,7 @@ CREATE TABLE `doctor_patient` (
   `id` int(11) NOT NULL,
   `p_id` int(11) DEFAULT NULL,
   `d_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -59,8 +66,15 @@ CREATE TABLE `medicine` (
   `first_time` varchar(50) DEFAULT NULL,
   `second_time` varchar(50) DEFAULT NULL,
   `third_time` varchar(50) DEFAULT NULL,
-  `statud` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `medicine`
+--
+
+INSERT INTO `medicine` (`p_id`, `m_id`, `m_name`, `left_medicine`, `first_time`, `second_time`, `third_time`, `status`) VALUES
+(1, 1, 'para', 30, '8.00', '12.00', '10.00', 'done');
 
 -- --------------------------------------------------------
 
@@ -74,7 +88,14 @@ CREATE TABLE `patient` (
   `p_phone` varchar(50) NOT NULL,
   `p_email` varchar(50) NOT NULL,
   `p_password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `patient`
+--
+
+INSERT INTO `patient` (`p_id`, `p_name`, `p_phone`, `p_email`, `p_password`) VALUES
+(1, 'Mr Akkas', '01797381244', 'user@gmail.com', 'user');
 
 --
 -- Indexes for dumped tables
@@ -115,7 +136,7 @@ ALTER TABLE `patient`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `doctor_patient`
@@ -127,13 +148,13 @@ ALTER TABLE `doctor_patient`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
